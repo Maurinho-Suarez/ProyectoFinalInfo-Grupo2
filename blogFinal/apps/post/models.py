@@ -19,7 +19,7 @@ class Post(models.Model):
         return self.titulo
 
 class Categoria(models.Model):
-    nombre = models.CharField()
+    nombre = models.CharField(max_length=20)
 
     def __str__(self):
         """Retorna titulo de la categoria del post"""

@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGOUT_REDIRECT_URL = reverse_lazy('index')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -55,7 +58,8 @@ ROOT_URLCONF = 'blogFinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')],
+        #'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')],
+        "DIRS": [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,12 +121,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS=(os.path.join(os.path.dirname(BASE_DIR), 'static'),)
+#STATICFILES_DIRS=(os.path.join(os.path.dirname(BASE_DIR),'static'),)
+STATICFILES_DIRS = BASE_DIR / "static",
+
+MEDIA = '/media/'
+#MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
