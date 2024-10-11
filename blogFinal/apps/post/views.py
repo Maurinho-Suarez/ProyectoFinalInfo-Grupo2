@@ -3,8 +3,27 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 
+from .models import Categoria, Post
 
-from .models import Post
+# CRUD para Categoría
+class CrearCategoria(CreateView):
+    model = Categoria
+    fields = ['nombre']
+    template_name = 'posts/agregar_categoria.html'
+    success_url = reverse_lazy('index')
+
+class ActualizarCategoria(UpdateView):
+    model = Categoria
+    fields = ['nombre']
+    template_name = 'posts/agregar_categoria.html'
+    success_url = reverse_lazy('index')
+
+class EliminarCategoria(DeleteView):
+    model = Categoria
+    template_name = 'genericos/confirma_eliminar.html'
+    success_url = reverse_lazy('index')
+
+#-----------------------------------------------------
 
 # CRUD para Post
 class CrearPost(CreateView):

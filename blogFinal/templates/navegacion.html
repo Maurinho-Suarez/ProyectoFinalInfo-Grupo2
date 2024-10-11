@@ -16,13 +16,13 @@
               </li>
               {% if user.is_staff %}
               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'apps.posts:agregar_categoria' %}">Agregar categoría</a>
+                  <a class="nav-link" href="{% url 'apps.post:agregar_categoria' %}">Agregar categoría</a>
               </li>
               {% endif %}
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Posts</a>
                   <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{% url 'apps.posts:agregar_post' %}">Crear</a></li>
+                      <li><a class="dropdown-item" href="{% url 'apps.post:agregar_post' %}">Crear</a></li>
                       <li><a class="dropdown-item" href="#"></a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#">Something else here</a></li>
