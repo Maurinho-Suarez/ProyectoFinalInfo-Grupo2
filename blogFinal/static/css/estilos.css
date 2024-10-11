@@ -31,10 +31,11 @@
 }
 
 .custom-centered-image {
-    width: 90%; /* Reduce el tamaño de la imagen a un 70% del ancho del contenedor */
-    height: auto; /* Mantén la proporción de la imagen */
-    display: block; /* Para asegurarse de que funcione con el margin */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-  }
+    width: 90%; /* Mantén el ancho deseado */
+    height: 500px; /* Establece una altura fija para recortar la imagen */
+    display: block; 
+    margin: 0 auto; 
+    overflow: hidden;
+    position: relative; 
+}
 
-  
