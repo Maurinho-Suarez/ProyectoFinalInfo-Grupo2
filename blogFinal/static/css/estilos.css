@@ -31,8 +31,8 @@
 }
 
 .custom-centered-image {
-    width: 90%; /* Mantén el ancho deseado */
-    height: 500px; /* Establece una altura fija para recortar la imagen */
+    width: 90%; 
+    height: 500px; 
     display: block; 
     margin: 0 auto; 
     overflow: hidden;
