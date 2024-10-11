@@ -28,13 +28,13 @@ class EliminarCategoria(DeleteView):
 # CRUD para Post
 class CrearPost(CreateView):
     model = Post
-    fields = ['titulo','autor','descripción_post','fecha_creado','fecha_editado','imagen']
+    fields = ['titulo','autor','descripcion_post','imagen']
     template_name = 'posts/agregar_post.html'
     success_url = reverse_lazy('index')
 
 class ActualizarPost(UpdateView):
     model = Post
-    fields = ['titulo','autor','descripcion','fecha_creado','fecha_editado','imagen']
+    fields = ['titulo','autor','descripcion_post','imagen']
     template_name = 'posts/agregar_post.html'
     success_url = reverse_lazy('index')
 
