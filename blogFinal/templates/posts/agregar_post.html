@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block titulo %}
-<title>Novedades Financieras</title>
+<title>CF | Agregar Post ✍️</title>
 <link rel="icon" href="{% static 'img/logo.ico' %}">
 {% endblock %}
 
@@ -11,7 +11,7 @@
   <form action="" method="POST" enctype="multipart/form-data" class="form-container">
     {% csrf_token %}
     <div class="overlay">
-        <h2 class="form-title">Agregar Posteo</h2>
+        <h2 class="form-title">Agregar Post✍️</h2>
         <p class="form-description">Ingrese los datos del posteo y presione "Guardar"</p>
         <div class="form-group">
             {{ form.as_p }}         
