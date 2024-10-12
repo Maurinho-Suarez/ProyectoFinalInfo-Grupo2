@@ -145,18 +145,54 @@
 .red-social {
     position: absolute; 
     bottom: 115px; 
-    left: 76.5%; 
+    left: 75.7%; 
     transform: translateX(-50%); 
     display: flex; 
 }
 
 i{
     text-align: right;
-    font-size: 20px;
+    font-size: 15px;
     color:white;
     margin: 2px;
     border-radius: 50%;
     padding: 15px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, .50);
     transition: .3s ease;
+}
+
+.fa-youtube:hover{
+    background-color:red;
+    color:white;
+    box-shadow: 0 0 15px red,
+                0 0 45px red,
+                0 0 75px red,
+                0 0 115px red,
+}
+
+.fa-twitter:hover{
+    background-color:#1D9BF0;
+    color:white;
+    box-shadow: 0 0 15px #1D9BF0,
+                0 0 45px #1D9BF0,
+                0 0 75px #1D9BF0,
+                0 0 115px#1D9BF0,
+}
+
+.fa-instagram:hover{
+    background-color:#DD2A7B;
+    color:white;
+    box-shadow: 0 0 15px #DD2A7B,
+                0 0 45px #DD2A7B,
+                0 0 75px #DD2A7B,
+                0 0 115px#DD2A7B,
+}
+
+.fa-facebook:hover{
+    background-color:#1877F2;
+    color:white;
+    box-shadow: 0 0 15px #1877F2,
+                0 0 45px #1877F2,
+                0 0 75px #1877F2,
+                0 0 115px#1877F2,
 }
