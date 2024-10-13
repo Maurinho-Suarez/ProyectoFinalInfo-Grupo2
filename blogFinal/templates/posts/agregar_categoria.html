@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}
+<title>CF | Agregar Categoría 📂</title>
+<link rel="icon" href="{% static 'img/logo.ico' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="main-container">
+  <form action="" method="POST" enctype="multipart/form-data" class="form-container">
+    {% csrf_token %}
+    <div class="overlay">
+        <h2 class="form-title">Agregar Categoría 📂</h2>
+        <p class="form-description">Ingrese los datos y presione "Guardar"</p>
+        <div class="form-group">
+            {{ form.as_p }}         
+        </div>
+        <div class="form-actions">
+            <input type="submit" value="Guardar" class="btn btn-primary">
+        </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
