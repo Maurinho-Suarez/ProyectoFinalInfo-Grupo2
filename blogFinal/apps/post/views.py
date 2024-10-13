@@ -20,7 +20,7 @@ class ActualizarCategoria(UpdateView):
 
 class EliminarCategoria(DeleteView):
     model = Categoria
-    template_name = 'genericos/confirma_eliminar.html'
+    template_name = 'general/confirma_eliminar.html'
     success_url = reverse_lazy('index')
 
 #-----------------------------------------------------
@@ -28,13 +28,13 @@ class EliminarCategoria(DeleteView):
 # CRUD para Post
 class CrearPost(CreateView):
     model = Post
-    fields = ['titulo','autor','descripcion_post','imagen']
+    fields = ['titulo','autor','descripcion_post','categoria','imagen']
     template_name = 'posts/agregar_post.html'
     success_url = reverse_lazy('index')
 
 class ActualizarPost(UpdateView):
     model = Post
-    fields = ['titulo','autor','descripcion_post','imagen']
+    fields = ['titulo','autor','descripcion_post','categoria','imagen']
     template_name = 'posts/agregar_post.html'
     success_url = reverse_lazy('index')
 
