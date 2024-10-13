@@ -12,10 +12,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 from django.urls import reverse_lazy
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOGIN_URL = reverse_lazy('apps.blog_auth:iniciar_sesion')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGOUT_REDIRECT_URL = reverse_lazy('index')
 
@@ -26,6 +30,10 @@ LOGOUT_REDIRECT_URL = reverse_lazy('index')
 SECRET_KEY = 'django-insecure-zfrged^)iqdwm^2zr^=%gt35$m#p)@e^q!at#@fn_+@a!x#=j6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+ENV_SECRET_KEY = os.getenv("SECRET_KEY")
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -41,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.post',
+    'apps.blog_auth',
 ]
 
 MIDDLEWARE = [
@@ -77,11 +86,18 @@ WSGI_APPLICATION = 'blogFinal.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+NAME_DB = os.getenv("NAME_DB")
+USER_DB = os.getenv("USER_MYSQL")
+PASSWORD_DB =  os.getenv("PASSWORD_MYSQL")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        "NAME": NAME_DB,
+        "USER": USER_DB,
+        "PASSWORD": PASSWORD_DB,
+        "PORT": '3306'
     }
 }
 
