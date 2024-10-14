@@ -14,6 +14,7 @@ from pathlib import Path
 from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,9 +87,9 @@ WSGI_APPLICATION = 'blogFinal.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-NAME_DB = os.getenv("NAME_DB")
-USER_DB = os.getenv("USER_MYSQL")
-PASSWORD_DB =  os.getenv("PASSWORD_MYSQL")
+NAME_DB = os.getenv("dbBlog")
+USER_DB = os.getenv("root")
+PASSWORD_DB =  os.getenv("")
 
 DATABASES = {
     'default': {
