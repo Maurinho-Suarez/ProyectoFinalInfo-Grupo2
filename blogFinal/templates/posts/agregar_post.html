@@ -7,7 +7,7 @@
 
 {% block contenido %}
 
-<div class="main-container">
+<div class="main-container" style="margin-top: 5px; margin-bottom: 5px;"> <!-- Más espacio arriba y abajo -->
   <form action="" method="POST" enctype="multipart/form-data" class="form-container">
     {% csrf_token %}
     <div class="overlay">
@@ -16,7 +16,7 @@
         <div class="form-group">
             {{ form.as_p }}         
         </div>
-        <div class="form-actions">
+        <div class="form-actions" style="margin-bottom: 15px;"> <!-- Ajuste de margen para el botón -->
             <input type="submit" value="Guardar" class="btn btn-primary">
         </div>
     </div>

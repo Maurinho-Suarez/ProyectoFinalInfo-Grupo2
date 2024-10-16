@@ -39,12 +39,20 @@
     position: relative; 
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+}
+
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    min-height: 100vh; 
     background-color: #f9f9f9; 
+    margin: 0; 
+    padding: 0; 
 }
 
 .form-container {

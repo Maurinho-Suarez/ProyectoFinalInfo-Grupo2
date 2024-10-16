@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
@@ -48,3 +48,10 @@ class ListarPost(ListView):
     template_name = 'posts/listar_posts.html'
     context_object_name = 'posts'
 
+
+def detalle_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    context = {
+        'post': post,
+    }
+    return render(request, 'posts/detalle_post.html', context)
