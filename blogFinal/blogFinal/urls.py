@@ -27,6 +27,7 @@ urlpatterns = [
     path ("", HomeView.as_view(), name='index'),
     path ("post/", include ('apps.post.urls')),
     path("users/", include('apps.blog_auth.urls')),
+    path("comentarios/", include('apps.comentarios.urls')),
     ]  + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
