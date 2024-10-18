@@ -1,0 +1,64 @@
+{% load static %}
+<div class="opiniones-list"
+    style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px;">
+    {% for item in opiniones %}
+    <div class="opinion-card"
+        style="background-color: #1c1c1c; border-radius: 10px; padding: 15px; width: 100%; max-width: 600px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div class="d-flex align-items-start">
+            <img src="{% static 'img/default_avatar.png' %}" alt="{{ item.usuario.username }}'s avatar" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
+            <div class="flex-grow-1">
+                <h6 class="mb-0">{{ item.usuario.username }}</h6>
+                <p class="mb-0 text-break opacity-75">{{ item.texto }}</p>
+            </div>
+            <small class="opacity-50 text-nowrap" style="font-size: 0.8em;">{{ item.fecha }}</small>
+            <!-- Fecha más pequeña -->
+        </div>
+        {% if user.is_authenticated and user.id == item.usuario.id %}
+        <div class="dropdown" style="float: right; margin-top: -10px;">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Opinión
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="{% url 'apps.opiniones:modificar_opinion' item.pk %}">Modificar
+                        opinión</a></li>
+                <li><a class="dropdown-item" href="{% url 'apps.opiniones:eliminar_opinion' item.pk %}">Eliminar
+                        opinión</a></li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .opiniones-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        
+    }
+
+    .opinion-card {
+        background-color: #1c1c1c;
+        
+        border-radius: 10px;
+        
+        padding: 15px;
+        
+        width: 100%;
+        
+        max-width: 600px;
+        
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        
+        transition: transform 0.3s;
+        
+    }
+
+    .opinion-card:hover {
+        transform: scale(1.02);
+        /* Efecto de hover */
+    }
+</style>
