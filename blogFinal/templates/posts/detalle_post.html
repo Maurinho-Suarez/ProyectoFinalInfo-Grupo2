@@ -24,4 +24,20 @@
     </div>
   </div>
 </div>
+
+
+<div class="comentarios-section" style="text-align: center; margin-top: 30px;">
+  <h3>Comentarios ({{ comentarios.count }})</h3>
+  <div class="comentarios-list" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+      
+          {% include 'comentarios/listar_comentarios.html' %}
+      
+  </div>
+</div>
+
+<div class="mb-3 display-7" style="text-align: center; margin-top: 20px;">
+  <h4>Añadir tu opinión:</h4>
+  {% include 'comentarios/agregar_comentario.html' %}
+</div>
+</section>
 {% endblock %}
