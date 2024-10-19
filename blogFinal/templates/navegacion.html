@@ -37,6 +37,12 @@
             {% endif %}
             <!-- Enlace para listar posts -->
             <li><a class="dropdown-item" href="{% url 'apps.post:listar_post' %}">Ver Posts</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <!-- Dropdown de categorías -->
+            <li class="dropdown-header">Categorías</li>
+            {% for categoria in categorias %}
+            <li><a class="dropdown-item" href="{% url 'apps.post:listar_post_categoria' categoria.nombre %}">{{ categoria.nombre }}</a></li>
+            {% endfor %}
           </ul>
         </li>
       </ul>

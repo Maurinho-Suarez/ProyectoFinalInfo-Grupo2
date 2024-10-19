@@ -97,5 +97,5 @@ ENV/
 /media/post/*
 
 
-blogFinal/blogFinal/settings.py
+#blogFinal/blogFinal/settings.py
 
