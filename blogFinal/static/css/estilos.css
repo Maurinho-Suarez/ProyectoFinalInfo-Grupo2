@@ -169,6 +169,8 @@ i{
     transition: .3s ease;
 }
 
+/* Iconos red social */
+
 .fa-youtube:hover{
     background-color:red;
     color:white;
@@ -219,4 +221,38 @@ i{
     border-radius: 5px;
     margin-bottom: 15px;
     text-align: left; 
+}
+
+/* Estilos de formulario de registro */
+
+.register-form .form-group {
+    text-align: left;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(241, 237, 237);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: left; 
+}
+
+/* Avatar imagen --> ver */
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.image-container img {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
 }
