@@ -1,0 +1,102 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="comment-box p-4">
+            <form method="POST" enctype="multipart/form-data" class="comment-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <div class="form-actions text-center mt-4">
+                    {% if user.is_authenticated %}
+                        <input type="submit" value="Opinar" class="btn btn-primary w-25" >
+                    {% else %}
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal" >
+                            Opinar
+                        </button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="loginModalLabel">Autenticación Requerida</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                Necesitas iniciar sesión o registrarte para poder opinar.
+            </div>
+            <div class="modal-footer justify-content-center border-0">
+                <a href="{% url 'apps.blog_auth:iniciar_sesion' %}" target="_blank" class="btn btn-outline-primary">Iniciar sesión</a>
+                <a href="{% url 'apps.blog_auth:registrarse' %}" target="_blank" class="btn btn-outline-primary">Registrarse</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos -->
+
+<style>
+    .comment-box {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .comment-form input[type="submit"], 
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .comment-form .form-actions {
+        margin-top: 20px;
+    }
+
+    .modal-content {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .modal-header h5 {
+        font-size: 18px;
+    }
+
+    .modal-body {
+        font-size: 16px;
+    }
+
+    .modal-footer .btn {
+        width: 45%;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+        .btn-primary, .btn-outline-primary {
+            width: 100%;
+        }
+    }
+</style>
