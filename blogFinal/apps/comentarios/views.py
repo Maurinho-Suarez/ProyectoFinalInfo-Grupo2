@@ -22,10 +22,10 @@ def agregar_comentario(request):
     return render(request, template_name, context)
 
 def comentarios(request):
-    Lista_comentarios = Comentario.object.all()
+    comentarios = Comentario.object.all()
     template_name = 'comentarios/listar_comentarios.html'
     context = {
-    'comentarios' : Lista_comentarios,
+    'comentarios' : comentarios,
     }
     return render(request, template_name, context)
 
@@ -37,7 +37,7 @@ class ModificarComentario(LoginRequiredMixin, UpdateView):
 
     def get_queryset(self) -> QuerySet[Any]:
         queryset = super().get_queryset()
-        return queryset.filter(usuario = self.request.user)
+        return queryset.filter(user = self.request.user)
     
 class EliminarComentario(LoginRequiredMixin, DeleteView):
     model = Comentario

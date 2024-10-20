@@ -1,63 +1,64 @@
-{% extends 'base.html' %}
-{% load static %}
+  {% extends 'base.html' %}
+  {% load static %}
 
-{% block titulo %}
-<title>{{ post.titulo }} - Detalles</title>
-<link rel="icon" href="{% static 'img/logo.ico' %}">
-{% endblock %}
+  {% block titulo %}
+  <title>{{ post.titulo }} - Detalles</title>
+  <link rel="icon" href="{% static 'img/logo.ico' %}">
+  {% endblock %}
 
-{% block contenido %}
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="post-detail border rounded p-4 shadow-sm">
-        <h1 class="display-4 text-center">{{ post.titulo }}</h1>
-        <p class="text-muted text-center">Autor: <strong>{{ post.autor }}</strong> | Fecha: <strong>{{ post.fecha_creado|date:"d M Y" }}</strong></p>
-        <hr>
-        <img src="{{ post.imagen.url }}" class="img-fluid rounded mb-4" alt="Imagen del post">
-        <p class="lead text-justify">{{ post.descripcion_post|linebreaks }}</p> 
-        <p><strong>Categoría:</strong> <span class="badge bg-primary">{{ post.categoria }}</span></p>
+  {% block contenido %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="post-detail border rounded p-4 shadow-sm">
+          <h1 class="display-4 text-center">{{ post.titulo }}</h1>
+          <p class="text-muted text-center">Autor: <strong>{{ post.autor }}</strong> | Fecha: <strong>{{ post.fecha_creado|date:"d M Y" }}</strong></p>
+          <hr>
+          <img src="{{ post.imagen.url }}" class="img-fluid rounded mb-4" alt="Imagen del post">
+          <p class="lead text-justify">{{ post.descripcion_post|linebreaks }}</p> 
+          <p><strong>Categoría:</strong> <span class="badge bg-primary">{{ post.categoria }}</span></p>
 
-        <!-- Opciones staff -->
-        {% if request.user.is_staff or request.user.is_superuser %}
-        <div class="text-center mt-4">
-          <a href="{% url 'apps.post:actualizar_post' post.id %}" class="btn btn-warning">Modificar Post</a>
-          <a href="{% url 'apps.post:eliminar_post' post.id %}" class="btn btn-danger">Eliminar Post</a>
+          <!-- Opciones staff -->
+          {% if request.user.is_staff or request.user.is_superuser %}
+          <div class="text-center mt-4">
+            <a href="{% url 'apps.post:actualizar_post' post.id %}" class="btn btn-warning">Modificar Post</a>
+            <a href="{% url 'apps.post:eliminar_post' post.id %}" class="btn btn-danger">Eliminar Post</a>
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
+        <div class="back-button text-center mt-4">
+          <a href="{% url 'apps.post:listar_post' %}" class="btn btn-secondary">Volver a la lista</a>
+        </div>
       </div>
-      <div class="back-button text-center mt-4">
-        <a href="{% url 'apps.post:listar_post' %}" class="btn btn-secondary">Volver a la lista</a>
+    </div>
+
+    <div class="comentarios-section text-center my-5">
+      <h4>Comentarios ({{ comentarios.count }})</h4>
+      <div class="comentarios-list d-flex flex-column align-items-center gap-3">
+        {% include 'comentarios/listar_comentarios.html' %}
       </div>
+    </div>
+
+    <div class="mb-3 text-center">
+        {% include 'comentarios/agregar_comentario.html' %}
     </div>
   </div>
 
-  <div class="comentarios-section text-center my-5">
-    <h3>Comentarios ({{ comentarios.count }})</h3>
-    <div class="comentarios-list d-flex flex-column align-items-center gap-3">
-      {% include 'comentarios/listar_comentarios.html' %}
-    </div>
-  </div>
+ <!-- Ajustes de visualización posteos -->
 
-  <div class="mb-3 text-center">
-    <h4>Añadir tu opinión:</h4>
-    {% include 'comentarios/agregar_comentario.html' %}
-  </div>
-</div>
-
-<style>
-  .post-detail {
-    background-color: #f8f9fa;
-    border: 1px solid #e1e1e1;
-  }
-  .post-detail p {
-    margin-bottom: 1.5rem;
-    text-align: justify; 
-  }
-  .comentarios-list {
-    max-width: 600px;
-    width: 100%;
-    margin: 0 auto;
-  }
-</style>
-{% endblock %}
+  <style>
+    .post-detail {
+      background-color: #f8f9fa;
+      border: 1px solid #e1e1e1;
+    }
+    .post-detail p {
+      margin-bottom: 1.5rem;
+      text-align: justify; 
+    }
+    .comentarios-list {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  </style>
+  {% endblock %}

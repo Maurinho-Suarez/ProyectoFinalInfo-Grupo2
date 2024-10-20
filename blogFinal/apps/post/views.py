@@ -8,6 +8,8 @@ from django.core.paginator import Paginator
 from mixins.custom_test_mixin import CustomTestMixin
 
 from .models import Categoria, Post
+from apps.comentarios.forms import ComentarioForm
+from apps.comentarios.models import Comentario
 
 # CRUD para Categoría
 class CrearCategoria(LoginRequiredMixin,CustomTestMixin, CreateView):
@@ -69,18 +71,26 @@ def listar_post_categoria(request,categoria):
 
 def detalle_post(request,id):
     post = Post.objects.get(id = id)
+    comentarios= Comentario.objects.filter(post=id)
+    form= ComentarioForm(request.POST)
+
+    if form.is_valid():
+        if request.user.is_authenticated: 
+            aux= form.save(commit=False)
+            aux.post= post
+            aux.user= request.user
+            aux.save()
+            form= ComentarioForm()
+
+        else: 
+            return redirect('apps.blog_auth:iniciar_sesion')
+        
     context= {
         "post": post,
-        #"form" : form, 
-        #"opiniones" : opiniones
+        "form" : form, 
+        "comentarios" : comentarios
     }
     template_name = "posts/detalle_post.html"
 
     return render(request, template_name=template_name,context=context)
 
-#def detalle_post(request, pk):
-#    post = get_object_or_404(Post, pk=pk)
- #   context = {
-  #      'post': post,
-   # }
-    #return render(request, 'posts/detalle_post.html', context)
