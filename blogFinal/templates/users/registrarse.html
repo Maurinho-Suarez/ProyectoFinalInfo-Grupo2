@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>CF | Registrar usuario 📝</title>
+<link rel="icon" href="{% static 'img/logo.ico' %}">
+{% endblock %}
+
+{% block navegacion %}
+{% include 'navegacion.html' %}
+{% endblock %}
+
+{% block contenido %}
+<div class="main-container">
+    <div class="form-container">
+        <div class="overlay">
+            <h2 class="form-title text-center">Crear una cuenta 👤</h2>
+            <p class="form-description text-center">Complete los campos para registrarse</p>
+            
+            <form method="post" enctype="multipart/form-data" class="register-form">{% csrf_token %}
+                <div class="form-group mb-3">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="text-danger">{{ form.username.errors|first }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group mb-3">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="text-danger">{{ form.email.errors|first }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group mb-3">
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                        <div class="text-danger">{{ form.password1.errors|first }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group mb-3">
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <div class="text-danger">{{ form.password2.errors|first }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-actions text-center">
+                    <button type="submit" class="btn btn-secondary btn-lg w-100">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="image-container d-none d-lg-block">
+        <img class="img-fluid rounded-circle" src="{% static 'img/default_avatar.png' %}" alt="Imagen de registro de usuario">
+    </div>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/registrar_usuario.css' %}">
+{% endblock %}

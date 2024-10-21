@@ -16,6 +16,8 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+.env
+local_settings.py
 build/
 develop-eggs/
 dist/
@@ -92,3 +94,10 @@ ENV/
 
 # Spyder project settings
 .spyderproject
+
+#media
+/media/post/*
+
+
+#blogFinal/blogFinal/settings.py
+

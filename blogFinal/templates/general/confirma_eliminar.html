@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>CF | Eliminar ❌</title>
+<link rel="icon" href="{% static 'img/logo.ico' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="main-container">
+    <form action="" method="POST" class="form-container">
+        {% csrf_token %}
+        <div class="overlay">
+            <h2 class="form-title">Eliminar  ❌</h2>
+            <p class="form-description">¿Está seguro de que desea eliminar?</p>
+            <div class="form-actions" style="text-align: center;">
+                <input type="submit" value="Sí, eliminar" class="btn btn-danger" style="margin-right: 10px;">
+                <a href="{% url 'index' %}" class="btn btn-secondary">No, volver al inicio</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

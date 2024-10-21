@@ -2,6 +2,13 @@ from django.db import models
 
 # Create your models here.
 
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=20)
+
+    def __str__(self):
+        """Retorna titulo de la categoria del post"""
+        return self.nombre
+
 class Post(models.Model):
     """Post model."""
     #user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -9,6 +16,7 @@ class Post(models.Model):
 
     titulo = models.CharField(max_length=80, null=False)
     autor = models.CharField(max_length=80, null=False)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     descripcion_post = models.TextField()
     fecha_creado= models.DateTimeField(auto_now_add=True)
     fecha_editado = models.DateTimeField(auto_now=True)
@@ -18,9 +26,3 @@ class Post(models.Model):
         """Retorna titulo del post"""
         return self.titulo
 
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=20)
-
-    def __str__(self):
-        """Retorna titulo de la categoria del post"""
-        return self.nombre

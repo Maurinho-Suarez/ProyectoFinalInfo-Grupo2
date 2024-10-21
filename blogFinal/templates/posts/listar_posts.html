@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}  
+
+{% block titulo %}
+<title>Últimas Novedades Económicas: ¡Lo que necesitás saber! 💡</title>
+<link rel="icon" href="{% static 'img/logo.ico' %}">
+{% endblock %}
+
+{% block contenido %}
+
+{% if posts %}
+<h1>Posts</h1>
+
+{% for p in posts %}
+<div class="card" style="width: 18rem; margin-bottom: 20px;">
+    <img src="{{ p.imagen.url }}" class="card-img-top" alt="Imagen de {{ p.titulo }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ p.titulo }}</h5>
+      
+      <p class="card-text">{{ p.descripcion_post|truncatechars:100 }}</p>
+      
+      <a href="{% url 'apps.post:post' p.id %}" class="btn btn-primary">Leer más</a>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Categoría: {{ p.categoria }}</li>
+      <li class="list-group-item">Autor: {{ p.autor }}</li>
+      <li class="list-group-item">Fecha de agregado: {{ p.fecha_creado|date:"d M, Y" }}</li>
+    </ul>
+</div>
+{% endfor %}
+
+{% else %}
+<p>No hay posts disponibles.</p>
+{% endif %}
+
+{% endblock %}
