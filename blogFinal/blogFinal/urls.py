@@ -28,6 +28,7 @@ urlpatterns = [
     path ("post/", include ('apps.post.urls')),
     path("users/", include('apps.blog_auth.urls')),
     path("comentarios/", include('apps.comentarios.urls')),
+    path("contacto/", include('apps.contacto.urls')),
     ]  + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
