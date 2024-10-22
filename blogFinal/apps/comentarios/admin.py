@@ -4,4 +4,6 @@ from .models import Comentario
 
 @admin.register(Comentario)
 class ComentariosAdmin(admin.ModelAdmin):
-    list_display = ('user', 'post', 'texto', 'fecha')
+    list_display = ('user','post','texto','fecha')
+
+#admin.site.register(Comentario)
