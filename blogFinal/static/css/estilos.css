@@ -2,6 +2,10 @@
     background-color: #4CAF50; 
 }
 
+.navbar-nav .nav-link {
+    font-family: 'Montserrat', sans-serif;
+  }
+
 .navbar .nav-link {
     color: white; 
 }
@@ -152,7 +156,7 @@ html, body {
 
 .red-social {
     position: absolute; 
-    bottom: 115px; 
+    bottom: 100px; 
     left: 75.7%; 
     transform: translateX(-50%); 
     display: flex; 

@@ -1,11 +1,12 @@
 {% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&family=Style+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
     <!-- Loguito:) -->
     <a class="navbar-brand" href="{% url 'index' %}" style="color: white;">
       <img src="{% static 'img/logo.png' %}" alt="Icono" width="35" height="35" class="d-inline-block align-text-top" style="margin-top: -3px;">
-      Caleidoscopio Financiero
+      <span style="font-family: 'Grenze Gotisch', cursive; font-size: 28px">Caleidoscopio Financiero</span>
     </a>
 
     <!-- Botón para el menú en pantallas pequeñas -->
@@ -20,7 +21,6 @@
           <a class="nav-link active" aria-current="page" href="{% url 'index' %}" style="color: white;">Inicio</a>
         </li>
 
-        <!-- agregar categoría si el usuario es staff -->
         {% if user.is_staff %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'apps.post:agregar_categoria' %}">Agregar categoría</a>
@@ -30,21 +30,23 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Posts</a>
           <ul class="dropdown-menu">
-            <!-- Agregar post p/staff -->
             {% if user.is_staff %}
             <li><a class="dropdown-item" href="{% url 'apps.post:agregar_post' %}">Crear</a></li>
             <li><hr class="dropdown-divider"></li>
             {% endif %}
-            <!-- Enlace para listar posts -->
             <li><a class="dropdown-item" href="{% url 'apps.post:listar_post' %}">Ver Posts</a></li>
             <li><hr class="dropdown-divider"></li>
-            <!-- Dropdown de categorías -->
             <li class="dropdown-header">Categorías</li>
             {% for categoria in categorias %}
             <li><a class="dropdown-item" href="{% url 'apps.post:listar_post_categoria' categoria.nombre %}">{{ categoria.nombre }}</a></li>
             {% endfor %}
           </ul>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'index' %}" style="color: white;">Nosotros</a>
+        </li>
+
       </ul>
 
       <!-- Perfil de usuario -->
