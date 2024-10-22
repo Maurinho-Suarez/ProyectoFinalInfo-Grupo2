@@ -7,4 +7,4 @@ from .models import Comentario
 class ComentariosAdmin(admin.ModelAdmin):
     list_display = ('user','post','texto','fecha')
 
-admin.site.register(Comentario)
+#admin.site.register(Comentario)
