@@ -2,6 +2,9 @@
     background-color: #4CAF50; 
 }
 
+.navbar-nav .nav-link {
+    font-family: 'Montserrat', sans-serif;
+  }
 .navbar .nav-link {
     color: white; 
 }

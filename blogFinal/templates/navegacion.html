@@ -1,4 +1,5 @@
 {% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&family=Style+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
@@ -6,6 +7,7 @@
     <a class="navbar-brand" href="{% url 'index' %}" style="color: white;">
       <img src="{% static 'img/logo.png' %}" alt="Icono" width="35" height="35" class="d-inline-block align-text-top" style="margin-top: -3px;">
       Caleidoscopio Financiero
+      <span style="font-family: 'Grenze Gotisch', cursive; font-size: 28px">Caleidoscopio Financiero</span>
     </a>
 
     <!-- Botón para el menú en pantallas pequeñas -->
@@ -19,7 +21,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'index' %}" style="color: white;">Inicio</a>
         </li>
-
 
         <!-- agregar categoría si el usuario es staff -->
         {% if user.is_staff %}
@@ -36,7 +37,7 @@
             <li><a class="dropdown-item" href="{% url 'apps.post:agregar_post' %}">Crear</a></li>
             <li><hr class="dropdown-divider"></li>
             {% endif %}
-            <!-- Enlace para listar posts -->
+            <!-- Enlace para listar posts -->           
             <li><a class="dropdown-item" href="{% url 'apps.post:listar_post' %}">Ver Posts</a></li>
             <li><hr class="dropdown-divider"></li>
             <!-- Dropdown de categorías -->
@@ -59,6 +60,10 @@
             <li><a class="dropdown-item" href="{% url 'apps.contacto:listar_contactos' %}">Ver Contactos</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'index' %}" style="color: white;">Nosotros</a>
         </li>
       </ul>
 

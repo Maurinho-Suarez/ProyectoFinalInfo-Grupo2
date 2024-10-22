@@ -30,4 +30,4 @@ class Migration(migrations.Migration):
                 ('categoria', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='post.categoria')),
             ],
         ),
-    ]
+
