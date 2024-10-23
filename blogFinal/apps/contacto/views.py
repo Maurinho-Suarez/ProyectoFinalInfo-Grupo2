@@ -10,11 +10,14 @@ from mixins.custom_test_mixin import CustomTestMixin
 from apps.contacto.forms import ContactoForm
 from .models import Contacto
 
-class CrearContacto(LoginRequiredMixin, CustomTestMixin, CreateView):
+class CrearContacto(CreateView):
     model = Contacto
     fields = ['nombre','email','mensaje','tipo_contacto','suscripcion']
     template_name = 'contacto/agregar_contacto.html'
     success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 class ModificarContacto(UpdateView, CustomTestMixin):
     model = Contacto
@@ -31,7 +34,7 @@ class EliminarContacto(DeleteView, CustomTestMixin):
     template_name = 'general/confirma_eliminar.html'
     success_url = reverse_lazy('index')
 
-class ListarContacto(ListView):
+class ListarContacto(LoginRequiredMixin,ListView):
     model = Contacto
     template_name = 'contacto/listar_contactos.html'
     context_object_name = 'contacto'

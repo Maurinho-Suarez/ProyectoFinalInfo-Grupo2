@@ -3,13 +3,12 @@
 
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
-    <!-- Loguito:) -->
+    <!-- Logotipo -->
     <a class="navbar-brand" href="{% url 'index' %}" style="color: white;">
       <img src="{% static 'img/logo.png' %}" alt="Icono" width="35" height="35" class="d-inline-block align-text-top" style="margin-top: -3px;">
-      Caleidoscopio Financiero
       <span style="font-family: 'Grenze Gotisch', cursive; font-size: 28px">Caleidoscopio Financiero</span>
     </a>
-
+   
     <!-- Botón para el menú en pantallas pequeñas -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,11 +34,9 @@
             <!-- Agregar post p/staff -->
             {% if user.is_staff %}
             <li><a class="dropdown-item" href="{% url 'apps.post:agregar_post' %}">Crear</a></li>
-            <li><hr class="dropdown-divider"></li>
             {% endif %}
             <!-- Enlace para listar posts -->           
             <li><a class="dropdown-item" href="{% url 'apps.post:listar_post' %}">Ver Posts</a></li>
-            <li><hr class="dropdown-divider"></li>
             <!-- Dropdown de categorías -->
             <li class="dropdown-header">Categorías</li>
             {% for categoria in categorias %}
@@ -47,18 +44,19 @@
             {% endfor %}
           </ul>
         </li>
+
         <!-- Agregar nuevo contacto -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contacto</a>
           <ul class="dropdown-menu">
-            <!-- Agregar contactos p/staff -->
+
+            <!-- Contacto disponible para todos los usuarios -->
+            <li><a class="dropdown-item" href="{% url 'apps.contacto:agregar_contacto' %}">Contactate</a></li>
+            
+            <!-- Enlace para listar los contactos solo para staff -->
             {% if user.is_staff %}
-            <li><a class="dropdown-item" href="{% url 'apps.contacto:agregar_contacto' %}">Crear</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'apps.contacto:listar_contactos' %}">Ver contactos recientes</a></li>
             {% endif %}
-            <!-- Enlace para listar los contactos -->
-            <li><a class="dropdown-item" href="{% url 'apps.contacto:listar_contactos' %}">Ver Contactos</a></li>
-            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
 

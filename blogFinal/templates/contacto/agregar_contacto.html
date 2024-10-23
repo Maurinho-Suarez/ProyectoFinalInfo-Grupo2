@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block titulo %}
-<title>CF | Agregar Contacto 📂</title>
+<title>CF | Contacto 🤝</title>
 <link rel="icon" href="{% static 'img/logo.ico' %}">
 {% endblock %}
 
@@ -11,8 +11,8 @@
   <form action="" method="POST" enctype="multipart/form-data" class="form-container">
     {% csrf_token %}
     <div class="overlay">
-        <h2 class="form-title">Agregar Contacto 📂</h2>
-        <p class="form-description">Ingrese los datos y presione "Guardar"</p>
+        <h3 class="form-title"; style="text-align:center">¿Necesitas Asesoría?¡Contactanos!📝</h3>
+        <p class="form-description"; style="text-align: justify">¡Hola! 🌟 Si tenés alguna pregunta sobre finanzas, consultas o necesitas asesoramiento, te invitamos a completar el siguiente formulario. Estamos acá para ayudarte a <strong>maximizar tus oportunidades y potenciar tus ganancias 📈.</strong></p>
         <div class="form-group">
             {{ form.as_p }}         
         </div>
