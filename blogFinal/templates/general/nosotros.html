@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
 
 {% block titulo %}
 <title>CF | Acerca de Nosotros 👥</title>
@@ -9,26 +11,35 @@
 {% block contenido %}
 
 <div class="wrapper">
-    <h1>Nosotros</h1>
+    <h1>Acerca de Nosotros</h1>
 
     <div class="team">
+     
         <div class="team_member">
-            <h3>Juan Carlos :v</h3>
-            <p class="role">Frontend Developer</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Sed do eiusmod tempor incididunt ut labore et dolore magna
-             aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-             ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+            <div class="image-container">
+                <img src="{% static 'img/Mauri.jpeg' %}" alt="Mauri" class="profile-img">
+            </div>
+            <h3>Mauricio Ezequiel Suárez </h3>
+            <p class="role">Backend Developer👨‍💻 | Ingeniero en Sistemas</p>
+            <p>Especialista en crear soluciones tecnológicas para optimizar procesos
+            financieros, con experiencia en programación y análisis de datos. Su 
+            enfoque innovador le permite desarrollar herramientas que
+            mejoran la eficiencia operativa y facilitan la toma de decisiones 
+            estratégicas.</p>
         </div>
-        <div class="team">
-            <h3>Juan Carlos :v</h3>
-            <p class="role">Frontend Developer</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Sed do eiusmod tempor incididunt ut labore et dolore magna
-             aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-             ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+        
+       
+        <div class="team_member">
+            <div class="image-container">
+                <img src="{% static 'img/Romi.jpeg' %}" alt="Romina Alegre" class="profile-img">
+            </div>
+            <h3>Romina Alegre</h3>
+            <p class="role">Frontend Developer👩‍💻 | Ingeniera Civil</p>
+            <p>Una profesional con experiencia en la gestión de proyectos de construcción y
+            un enfoque analítico, que combina habilidades en diseño y programación para
+            desarrollar interfaces de usuario intuitivas y efectivas.</p>
         </div>
-     </div>
+    </div>
 </div>
 
 {% endblock %}
