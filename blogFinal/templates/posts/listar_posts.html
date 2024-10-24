@@ -13,7 +13,7 @@
 <h1>Posts</h1>
 
 {% for p in posts %}
-<div class="card" style="width: 18rem; margin-bottom: 20px;">
+<div class="card" style="width: 18rem; margin-bottom: 20px; display:inline-block">
     <img src="{{ p.imagen.url }}" class="card-img-top" alt="Imagen de {{ p.titulo }}">
     <div class="card-body">
       <h5 class="card-title">{{ p.titulo }}</h5>
